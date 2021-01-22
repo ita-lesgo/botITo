@@ -5,5 +5,5 @@ export interface IDiscordConfig {
 
 export const discordConfig: IDiscordConfig = {
   token: process.env.DISCORD_TOKEN,
-  prefix: '/',
+  prefix: '&',
 }
