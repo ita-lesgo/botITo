@@ -1,11 +1,13 @@
-import { Client, Collection, ClientOptions } from "discord.js";
+import { Client, Collection, ClientOptions } from 'discord.js';
 
-import { discordConfig } from "@config/discord";
-import { BaseCommand } from "../core/Command";
-import { commands } from "../core/commands";
+import { discordConfig } from '@config/discord';
+
+import { BaseCommand } from '../core/Command';
+import { commands } from '../core/commands';
 
 export class Discord extends Client {
   readonly discordToken: string;
+
   readonly prefix: string;
 
   commands: Collection<string, BaseCommand>;
@@ -22,10 +24,10 @@ export class Discord extends Client {
     this.loadCmds();
   }
 
-  public loadCmds() {
+  public loadCmds(): void {
     commands.forEach((Cmd) => {
       const Command = new Cmd();
-      
+
       this.commands.set(Command.command, Command);
     });
   }
