@@ -1,10 +1,5 @@
 import { BaseCommand } from "@shared/core/Command";
-
-enum Level
-{
-	itinha = 1,
-	senpai
-};
+import { Level } from "@shared/core/class"
 
 export class LevelCheckController extends BaseCommand {
   command = 'turma';

@@ -3,3 +3,4 @@ dist
 *.sqlite3
 .env
 yarn-error.log
+yarn.lock
