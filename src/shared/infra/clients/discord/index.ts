@@ -1,9 +1,9 @@
-import { Discord } from "@shared/domain/DiscordClient";
+import { Discord } from '@shared/domain/DiscordClient';
 
 const client = new Discord();
 
 client.on('ready', () => {
-  console.log('Bot ready')
+  console.log('Bot ready');
 });
 
 client.on('message', async (message) => {
@@ -17,7 +17,6 @@ client.on('message', async (message) => {
     args,
     client,
   });
-  
 });
 
 client.login(client.discordToken);
