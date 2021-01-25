@@ -5,9 +5,9 @@ import { BaseCommand } from '@shared/core/Command';
 import { HealthCheckUseCase } from './HealthCheckUseCase';
 
 export class HealthCheckController extends BaseCommand {
-  command = 'health';
+  public command = 'health';
 
-  async execute(): Promise<any> {
+  public async execute(): Promise<any> {
     const msg = await this.message.channel.send('Calculando diagnósticos');
 
     const healthCheckUseCase = container.resolve(HealthCheckUseCase);

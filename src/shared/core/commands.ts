@@ -1,5 +1,9 @@
-import { HealthCheckController } from "@modules/misc/useCases/healthCheck/HealthCheckController";
-import { LevelCheckController } from "@modules/misc/useCases/LevelCheckController"
-import { BaseCommand } from "./Command";
+import { LevelCheckController } from '@modules/classes/useCases/LevelCheckController';
+import { HealthCheckController } from '@modules/misc/useCases/healthCheck/HealthCheckController';
 
-export const commands: Array<{ new(): BaseCommand }> = [HealthCheckController, LevelCheckController]
+import { BaseCommand } from './Command';
+
+export const commands: Array<{ new (): BaseCommand }> = [
+  HealthCheckController,
+  LevelCheckController,
+];

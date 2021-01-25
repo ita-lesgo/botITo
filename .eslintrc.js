@@ -69,7 +69,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     '@typescript-eslint/camelcase': 'off',
     'prettier/prettier': 'error',
-    'class-methods-use-this': 'error',
+    'class-methods-use-this': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/extensions': [
       'error',
@@ -102,4 +102,15 @@ module.exports = {
       },
     },
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/explicit-member-accessibility': [
+          'error',
+          { overrides: { constructors: 'no-public' } },
+        ],
+      },
+    },
+  ],
 };

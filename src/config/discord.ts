@@ -6,4 +6,4 @@ export interface IDiscordConfig {
 export const discordConfig: IDiscordConfig = {
   token: process.env.DISCORD_TOKEN,
   prefix: process.env.DEV_PREFIX ? process.env.DEV_PREFIX : '/',
-}
+};
