@@ -17,24 +17,32 @@ export class LevelCheckController extends BaseCommand {
       const levelCheckUseCase = container.resolve(LevelCheckUseCase);
       const data = await levelCheckUseCase.execute(roles);
 
-      return this.embedResponse({
-        title: `Você é do ${data}º ano`,
-      });
+      console.log(data);
+
+      return this.message.channel.send(
+        this.embedResponse({
+          title: `Você é do ${data}º ano`,
+        })
+      );
     } catch (err) {
       if (err instanceof UseCaseError) {
-        return this.embedResponse({
-          isError: true,
-          title: err.message,
-          description: err.description,
-        });
+        return this.message.channel.send(
+          this.embedResponse({
+            isError: true,
+            title: err.message,
+            description: err.description,
+          })
+        );
       }
 
       console.error(err);
 
-      return this.embedResponse({
-        isError: true,
-        title: 'Algo deu errado',
-      });
+      return this.message.channel.send(
+        this.embedResponse({
+          isError: true,
+          title: 'Algo deu errado',
+        })
+      );
     }
   }
 }

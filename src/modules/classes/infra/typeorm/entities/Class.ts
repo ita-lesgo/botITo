@@ -10,7 +10,10 @@ export class Class {
   @Column()
   public level: 1 | 2;
 
-  @Column('role_id')
+  @Column({
+    name: 'role_id',
+    unique: true,
+  })
   public roleId: string;
 
   @OneToMany(() => Day, (day) => day.class, {

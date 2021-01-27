@@ -37,7 +37,11 @@ export abstract class BaseCommand {
       .setThumbnail(this.client.user.avatarURL())
       .setTitle(title);
 
-    return description ? embed : embed.setDescription(description);
+    if (description) {
+      embed.setDescription(description);
+    }
+
+    return embed;
   }
 
   protected badArguments(description?: string): Promise<Message> {

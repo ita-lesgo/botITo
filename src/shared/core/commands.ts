@@ -1,4 +1,4 @@
-import { LevelCheckController } from '@modules/classes/useCases/LevelCheckController';
+import { LevelCheckController } from '@modules/classes/useCases/levelCheck/LevelCheckController';
 import { HealthCheckController } from '@modules/misc/useCases/healthCheck/HealthCheckController';
 
 import { BaseCommand } from './Command';
