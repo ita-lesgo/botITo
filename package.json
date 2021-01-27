@@ -52,7 +52,7 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix",
-      "git add"
+      "yarn test --findRelatedTests --bail"
     ]
   }
 }
