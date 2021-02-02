@@ -1,11 +1,11 @@
 # Botito
 Bot for managing classes and schedules
 
-## Functionalities 
+## Functionalities
 
 ## Classes
 
-- [ ] Create
+- [x] Create
 - [ ] Read
 - [ ] Update
 - [ ] Delete

@@ -6,11 +6,11 @@ import { BaseCommand } from '../core/Command';
 import { commands } from '../core/commands';
 
 export class Discord extends Client {
-  readonly discordToken: string;
+  public readonly discordToken: string;
 
-  readonly prefix: string;
+  public readonly prefix: string;
 
-  commands: Collection<string, BaseCommand>;
+  public commands: Collection<string, BaseCommand>;
 
   constructor(options?: ClientOptions) {
     super(options);
