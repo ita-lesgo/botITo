@@ -16,8 +16,6 @@ export class LevelCheckController extends BaseCommand {
       const levelCheckUseCase = container.resolve(LevelCheckUseCase);
       const data = await levelCheckUseCase.execute(roles);
 
-      console.log(data);
-
       return this.message.channel.send(
         this.embedResponse({
           title: `Você é do ${data}º ano`,

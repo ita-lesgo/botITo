@@ -1,7 +1,7 @@
 import { injectable, inject } from 'tsyringe';
 
+import { UseCaseError } from '@shared/domain/errors/UseCaseError';
 import { IUseCase } from '@shared/domain/IUseCase';
-import { UseCaseError } from '@shared/logic/UseCaseError';
 
 import { IClassesRepository } from '@modules/classes/repositories/IClassesRepository';
 

@@ -1,6 +1,6 @@
 import { Message, MessageEmbed } from 'discord.js';
 
-import { UseCaseError } from '@shared/logic/UseCaseError';
+import { UseCaseError } from '@shared/domain/errors/UseCaseError';
 
 import { IDiscordArgs } from '../domain/IDiscordArgs';
 

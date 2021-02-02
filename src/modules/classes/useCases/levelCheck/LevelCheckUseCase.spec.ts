@@ -1,4 +1,4 @@
-import { UseCaseError } from '@shared/logic/UseCaseError';
+import { UseCaseError } from '@shared/domain/errors/UseCaseError';
 
 import { FakeClassRepository } from '@modules/classes/repositories/fakes/FakeClassesRepository';
 import { IClassesRepository } from '@modules/classes/repositories/IClassesRepository';

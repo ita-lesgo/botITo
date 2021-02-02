@@ -1,7 +1,7 @@
 import { inject, injectable } from 'tsyringe';
 
+import { UseCaseError } from '@shared/domain/errors/UseCaseError';
 import { IUseCase } from '@shared/domain/IUseCase';
-import { UseCaseError } from '@shared/logic/UseCaseError';
 
 import { ICreateClassDTO } from '@modules/classes/dtos/ICreateClassDTO';
 import { Class } from '@modules/classes/infra/typeorm/entities/Class';
