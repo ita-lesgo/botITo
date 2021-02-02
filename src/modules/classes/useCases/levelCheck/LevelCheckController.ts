@@ -1,7 +1,6 @@
 import { container } from 'tsyringe';
 
 import { BaseCommand } from '@shared/core/Command';
-import { UseCaseError } from '@shared/logic/UseCaseError';
 
 import { LevelCheckUseCase } from './LevelCheckUseCase';
 
@@ -25,24 +24,7 @@ export class LevelCheckController extends BaseCommand {
         })
       );
     } catch (err) {
-      if (err instanceof UseCaseError) {
-        return this.message.channel.send(
-          this.embedResponse({
-            isError: true,
-            title: err.message,
-            description: err.description,
-          })
-        );
-      }
-
-      console.error(err);
-
-      return this.message.channel.send(
-        this.embedResponse({
-          isError: true,
-          title: 'Algo deu errado',
-        })
-      );
+      return this.handleError(err);
     }
   }
 }

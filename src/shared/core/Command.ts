@@ -1,5 +1,7 @@
 import { Message, MessageEmbed } from 'discord.js';
 
+import { UseCaseError } from '@shared/logic/UseCaseError';
+
 import { IDiscordArgs } from '../domain/IDiscordArgs';
 
 interface IEmbedArgs {
@@ -60,6 +62,27 @@ export abstract class BaseCommand {
         title: 'Sem autorização',
         description,
         isError: true,
+      })
+    );
+  }
+
+  protected handleError(err: Error): Promise<Message> {
+    if (err instanceof UseCaseError) {
+      return this.message.channel.send(
+        this.embedResponse({
+          isError: true,
+          title: err.message,
+          description: err.description,
+        })
+      );
+    }
+
+    console.error(err);
+
+    return this.message.channel.send(
+      this.embedResponse({
+        isError: true,
+        title: 'Algo deu errado',
       })
     );
   }
