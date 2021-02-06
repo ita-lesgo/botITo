@@ -1,4 +1,5 @@
 import { Message, MessageEmbed } from 'discord.js';
+import { ObjectSchema } from 'joi';
 
 import { UseCaseError } from '@shared/domain/errors/UseCaseError';
 
@@ -85,5 +86,32 @@ export abstract class BaseCommand {
         title: 'Algo deu errado',
       })
     );
+  }
+
+  protected validate<Schema, Data>(
+    schema: ObjectSchema<Schema>,
+    data: Data,
+    description?: string
+  ): boolean {
+    const { error } = schema.validate(data, {
+      abortEarly: false,
+    });
+
+    if (error) {
+      const embed = this.embedResponse({
+        title: 'Argumentos mal-formatados',
+        description,
+        isError: true,
+      });
+
+      error.details.forEach((err, index) => {
+        embed.addField(`${index + 1}º erro`, err.message);
+      });
+
+      this.message.channel.send(embed);
+      return false;
+    }
+
+    return true;
   }
 }

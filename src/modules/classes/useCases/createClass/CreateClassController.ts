@@ -2,7 +2,10 @@ import { container } from 'tsyringe';
 
 import { BaseCommand } from '@shared/core/Command';
 
+import { discordConfig } from '@config/discord';
+
 import { CreateClassUseCase } from './CreateClassUseCase';
+import { createClassSchema } from './CreateClassValidator';
 
 export class CreateClassController extends BaseCommand {
   public command = 'turma:create';
@@ -12,7 +15,16 @@ export class CreateClassController extends BaseCommand {
       const createClassUseCase = container.resolve(CreateClassUseCase);
 
       const [sentRole, level] = this.args;
-      // TODO: Add argument validator
+
+      if (
+        !this.validate(
+          createClassSchema,
+          { sentRole, level },
+          `O comando correto é ${discordConfig.prefix}turma:create [tag do role] [nível (1 ou 2)]`
+        )
+      ) {
+        return;
+      }
 
       const roleId = sentRole.replace(/\D/g, ''); // pega apenas o id
 
