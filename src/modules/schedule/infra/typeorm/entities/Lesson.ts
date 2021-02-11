@@ -13,7 +13,7 @@ import { Teacher } from './Teacher';
 @Entity()
 export class Lesson {
   @PrimaryGeneratedColumn('uuid')
-  public id: number;
+  public id: string;
 
   @Column()
   public name: string;

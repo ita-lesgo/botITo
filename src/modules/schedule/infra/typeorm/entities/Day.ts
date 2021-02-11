@@ -13,7 +13,7 @@ export type DayOfTheWeek = 1 | 2 | 3 | 4 | 5;
 @Entity()
 export class Day {
   @PrimaryGeneratedColumn('uuid')
-  public id: number;
+  public id: string;
 
   @Column()
   public class_id: string;
