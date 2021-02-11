@@ -7,7 +7,8 @@
     "dev": "tsnd -r tsconfig-paths/register --transpile-only --respawn  --exit-child --ignore-watch node_modules src/index.ts",
     "test": "jest",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "migration:run": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run"
+    "migration:run": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run",
+    "lint": "eslint --ext .tsx,.ts,.js src/"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
